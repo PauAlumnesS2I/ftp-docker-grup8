@@ -10,7 +10,7 @@ RUN apt-get update -y && \
 # Montam les carpetes persistents
 VOLUME /etc
 VOLUME /srv/ftp/public
-CMD ["/usr/sbin/vsftpd", "/etc/vsftpd.conf"]
+CMD ["/usr/sbin/vsftpd", "/etc/vsftpd.conf", "-g"]
 #CMD ["named", "-g"]
 
 # Exposam el port utilizat
