@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  vsftpd-grup8:
+    build:
+      context: ..
+      dockerfile: ftp.DockerFile
+    container_name: ftp-dck-grup8
+    ports:
+# Perque el servei funcioni s'han de desactiar el systemd-resolved per aixo s'han d'executar les seguents instruccions.
+# systemctl stop systemd-resolved
+# systemctl disable systemd-resolved
+      - 20:20/tcp
+      - 21:21/tcp
+    volumes:
+      - ./etc:/etc:rw
+      - ./srv/ftp/public:/srv/ftp/public:rw
